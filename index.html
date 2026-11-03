@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYY SALON | Luxury Beauty Studio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{background:#0b0b0b;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292015}
+.logo{font-size:25px;color:#d6b46a;font-weight:bold;letter-spacing:3px}
+nav a{color:#fff;text-decoration:none;margin-left:20px;font-size:14px}
+.hero{min-height:80vh;display:flex;align-items:center;padding:60px 10%;background:linear-gradient(90deg,#080808 35%,#0008),url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400') center/cover}
+.hero h1{font-size:clamp(42px,7vw,75px);margin:15px 0;color:#e3c47b}
+.hero p{color:#ddd;line-height:1.8;max-width:480px}
+.tag{color:#d6b46a;letter-spacing:4px}
+.btn{display:inline-block;background:#d6b46a;color:#111;padding:14px 25px;margin-top:25px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+section{padding:75px 9%;text-align:center}
+h2{font-size:36px;color:#d6b46a;margin-bottom:18px}
+.sub{color:#aaa;margin-bottom:35px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:#171717;padding:30px 20px;border:1px solid #3b3020}
+.card h3{color:#e3c47b;margin-bottom:12px}
+.card p{color:#aaa;line-height:1.6}
+.price{color:#fff;font-size:20px;margin-top:15px}
+.booking{max-width:600px;margin:auto;background:#171717;padding:30px}
+input,select,textarea{width:100%;padding:14px;margin:9px 0;background:#080808;color:#fff;border:1px solid #51432b}
+footer{padding:30px;text-align:center;background:#050505;color:#aaa}
+</style>
+</head>
+<body>
 
+<header>
+<div class="logo">HYY SALON</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#booking">Booking</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<div>
+<div class="tag">LUXURY BEAUTY EXPERIENCE</div>
+<h1>Beauty Begins<br>With You.</h1>
+<p>Discover your style. Enjoy premium salon services in a comfortable and elegant space.</p>
+<a class="btn" href="#booking">BOOK APPOINTMENT</a>
+</div>
+</div>
+
+<section id="services">
+<h2>Our Services</h2>
+<p class="sub">A little luxury, just for you.</p>
+<div class="services">
+<div class="card"><h3>Haircut & Styling</h3><p>Fresh cuts and beautiful styling.</p><div class="price">₹299 onwards</div></div>
+<div class="card"><h3>Hair Spa</h3><p>Relaxing care for healthy-looking hair.</p><div class="price">₹699 onwards</div></div>
+<div class="card"><h3>Facial</h3><p>A refreshing skincare experience.</p><div class="price">₹499 onwards</div></div>
+<div class="card"><h3>Bridal Makeup</h3><p>Special looks for special occasions.</p><div class="price">₹2,999 onwards</div></div>
+</div>
+</section>
+
+<section id="booking">
+<h2>Book Your Appointment</h2>
+<p class="sub">Choose your service and preferred time.</p>
+<form class="booking" id="bookingForm">
+<input id="name" placeholder="Your Name" required>
+<input id="phone" type="tel" placeholder="Phone Number" required>
+<select id="service" required>
+<option value="">Select Service</option>
+<option>Haircut & Styling</option>
+<option>Hair Spa</option>
+<option>Facial</option>
+<option>Bridal Makeup</option>
+</select>
+<input id="date" type="date" required>
+<input id="time" type="time" required>
+<button class="btn" type="submit">BOOK ON WHATSAPP</button>
+</form>
+</section>
+
+<footer>
+<p>HYY SALON © 2026</p>
+<p>Luxury Beauty Experience</p>
+<p>Website by HYY WEB STUDIO</p>
+</footer>
+
+<script>
+document.getElementById("date").min = new Date().toISOString().split("T")[0];
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
+const service=document.getElementById("service").value;
+const date=document.getElementById("date").value;
+const time=document.getElementById("time").value;
+
+const salonWhatsApp="91XXXXXXXXXX";
+
+const message=`Hello HYY SALON! I want to book an appointment.
+
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Date: ${date}
+Time: ${time}`;
+
+window.open(`https://wa.me/${salonWhatsApp}?text=${encodeURIComponent(message)}`,"_blank");
+});
+</script>
+
+</body>
+</html>
